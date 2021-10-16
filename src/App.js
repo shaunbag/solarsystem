@@ -1,13 +1,13 @@
 import './App.css';
-import Earth from './img/earth.png';
-import Mercuryimg from './img/mercury.png';
-import Venus from './img/venus.png';
-import Marsimg from './img/mars.png';
-import Jupiter from './img/jupiter.png';
-import Saturn from './img/saturn.png';
-import Uranus from './img/uranus.png';
-import Neptune from './img/neptune.png';
-import Sunimg from './img/sun.png';
+import EarthImg from './img/earth.png';
+import MercuryImg from './img/mercury.png';
+import VenusImg from './img/venus.png';
+import MarsImg from './img/mars.png';
+import JupiterImg from './img/jupiter.png';
+import SaturnImg from './img/saturn.png';
+import UranusImg from './img/uranus.png';
+import NeptuneImg from './img/neptune.png';
+import SunImg from './img/sun.png';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,6 +16,13 @@ import {
 } from "react-router-dom";
 import Mars from './components/Mars';
 import Mercury from './components/Mercury';
+import Earth from './components/Earth';
+import Venus from './components/Venus';
+import Jupiter from './components/Jupiter';
+import Saturn from './components/Saturn';
+import Uranus from './components/Uranus';
+import Neptune from './components/Neptune';
+import Sun from './components/Sun';
 
 function App() {
 
@@ -23,47 +30,49 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <h1 className="title">Our Solar System</h1>
+      <Link to="/"><h1 className="title">Our Solar System</h1></Link>
       <div className="planets">
-        <Link to="/" ><img src={Sunimg} alt="No Img" height="300px"></img></Link>
-        <Link to="/mercury" ><img src={Mercuryimg} alt="No img" height="50px"></img></Link>
-        <Link to="/venus" ><img src={Venus} alt="No img" height="100px"></img></Link>
-        <Link to="/earth" ><img src={Earth} alt="No img" height="100px"></img></Link>
-        <Link to="/mars" ><img src={Marsimg} alt="No img" height="150px"></img></Link>
-        <Link to="/jupiter" ><img src={Jupiter} alt="No img" height="200px"></img></Link>
-        <Link to="/saturn" ><img src={Saturn} alt="No img" height="175px"></img></Link>
-        <Link to="/uranus" ><img src={Uranus} alt="No img" height="150px"></img></Link>
-        <Link to="/neptune" ><img src={Neptune} alt="No img" height="200px"></img></Link>
+        <Link to="/sun" ><img src={SunImg} alt="No Img" height="300px"></img></Link>
+        <Link to="/mercury" ><img src={MercuryImg} alt="No img" height="50px"></img></Link>
+        <Link to="/venus" ><img src={VenusImg} alt="No img" height="100px"></img></Link>
+        <Link to="/earth" ><img src={EarthImg} alt="No img" height="100px"></img></Link>
+        <Link to="/mars" ><img src={MarsImg} alt="No img" height="150px"></img></Link>
+        <Link to="/jupiter" ><img src={JupiterImg} alt="No img" height="200px"></img></Link>
+        <Link to="/saturn" ><img src={SaturnImg} alt="No img" height="175px"></img></Link>
+        <Link to="/uranus" ><img src={UranusImg} alt="No img" height="150px"></img></Link>
+        <Link to="/neptune" ><img src={NeptuneImg} alt="No img" height="200px"></img></Link>
       </div>
     
 
         <Switch>
-          <Route exact path='/'>
-            
+          <Route exact path="/">
+          </Route>  
+          <Route path='/sun'>
+            <Sun />
           </Route>
           <Route path='/mercury'>
-          <Mercury />
+            <Mercury />
           </Route>
           <Route path='/venus'>
-            
+            <Venus />
           </Route>
           <Route path='/earth'>
-           
+            <Earth />
           </Route>
           <Route path='/mars'>
             <Mars />
           </Route>
           <Route path='/jupiter'>
-            
+            <Jupiter />
           </Route>
           <Route path='/saturn'>
-            
+            <Saturn />
           </Route>
           <Route path='/uranus'>
-            
+            <Uranus />
           </Route>
           <Route path='/neptune'>
-            
+            <Neptune />
           </Route>
         </Switch>
       
