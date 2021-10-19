@@ -51,5 +51,12 @@ code {
   background-color: black;
   color:white;
   margin: 0;
-  padding: 20%;
+  padding: 15% 0 0 5%;
+  line-height: 5px;
+  text-align: left;
+}
+
+.blurb h1 {
+  text-align: center;
+  padding-top: 2px;
 }
