@@ -24,6 +24,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      title: "Our Planetary Bodies",
       planet: "",
       aphelion: 0,
       argPeriapsis: 0,
@@ -40,11 +41,25 @@ class App extends React.Component {
       inclination: 0,
       longAscNode: 0,
       mainAnomaly: 0
-      
     };
+    
     this.planetSearch = this.planetSearch.bind(this);
+    this.titleUpdate = this.titleUpdate.bind(this);
+    this.handleReturnTitle = this.handleReturnTitle.bind(this);
   }
 
+handleReturnTitle(){
+  this.setState({
+    title: "Our Planetary Bodies"
+  })
+}
+
+titleUpdate(e){
+  let planet = e.currentTarget.getAttribute('Value');
+    this.setState({
+      title: planet
+    })
+  }
 
 planetSearch(e){
     let planet = e.currentTarget.getAttribute('Value');
@@ -73,17 +88,18 @@ planetSearch(e){
    return (
     <Router>
     <div className="App">
-      <Link to="/"><h1 className="title">Our Solar System</h1></Link>
+      <Link to="/"><h1 className="title">Our <span className="blue">Solar System</span></h1></Link>
       <div className="planets">
-        <Link to="/planet" onClick={this.planetSearch} value="Sun"><img src={SunImg} alt="No Img" height="300px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Mercury"><img src={MercuryImg} alt="No img" height="50px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Venus"><img src={VenusImg} alt="No img" height="100px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Earth"><img src={EarthImg} alt="No img" height="100px" ></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Mars"><img src={MarsImg} alt="No img" height="150px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Jupiter"><img src={JupiterImg} alt="No img" height="200px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Saturn"><img src={SaturnImg} alt="No img" height="175px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Uranus"><img src={UranusImg} alt="No img" height="150px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} value="Neptune"><img src={NeptuneImg} alt="No img" height="200px"></img></Link>
+        <h3 className="title">{this.state.title}</h3>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Sun"><img src={SunImg} alt="No Img" height="300px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Mercury"><img src={MercuryImg} alt="No img" height="50px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Venus"><img src={VenusImg} alt="No img" height="100px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Earth"><img src={EarthImg} alt="No img" height="100px" ></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Mars"><img src={MarsImg} alt="No img" height="150px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Jupiter"><img src={JupiterImg} alt="No img" height="200px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Saturn"><img src={SaturnImg} alt="No img" height="175px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Uranus"><img src={UranusImg} alt="No img" height="150px"></img></Link>
+        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Neptune"><img src={NeptuneImg} alt="No img" height="200px"></img></Link>
       </div>
     
 

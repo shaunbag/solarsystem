@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+
 body {
   margin: 0;
   padding:0;
@@ -21,13 +23,34 @@ code {
 }
 
 .title{
+  font-family: 'Irish Grover';
+  font-size: 5rem;
+  padding: 0;
+  margin:0;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+h3{
+  font-family: 'Irish Grover';
+  font-size: 3rem;
   padding: 0;
   margin: 0;
   color: white;
+  text-decoration: none;
+}
+
+.blue{
+  color:aqua;
+}
+
+a{
+  text-decoration: none;
 }
 
 .planets {
-  padding-top: 15%;
+  padding-top: 10%;
   justify-content: center;
 }
 
@@ -50,13 +73,14 @@ code {
 .blurb {
   background-color: black;
   color:white;
-  margin: 0;
-  padding: 15% 0 0 5%;
-  line-height: 5px;
   text-align: left;
 }
 
 .blurb h1 {
   text-align: center;
-  padding-top: 2px;
+  padding-top: 60px;
+}
+
+.info{
+  display: inline-block;
 }
