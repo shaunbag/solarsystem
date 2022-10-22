@@ -17,6 +17,7 @@ import {
 import Earth from './components/Earth';
 import Search from './components/SearchApi';
 import React from 'react';
+import PlanetData from './utils/planets.json';
 
 class App extends React.Component {
 
@@ -40,9 +41,10 @@ class App extends React.Component {
       id: "",
       inclination: 0,
       longAscNode: 0,
-      mainAnomaly: 0
+      mainAnomaly: 0,
+      data: ""
     };
-    
+
     this.planetSearch = this.planetSearch.bind(this);
     this.titleUpdate = this.titleUpdate.bind(this);
     this.handleReturnTitle = this.handleReturnTitle.bind(this);
@@ -63,6 +65,17 @@ titleUpdate(e){
 
 planetSearch(e){
     let planet = e.currentTarget.getAttribute('Value');
+    let descriptions = PlanetData;
+
+    for(let i=0; i < descriptions.length; i++){
+      console.log(descriptions[i])
+      if(descriptions["planets"][i].name === planet){
+        
+        this.setState({
+          data: descriptions["planets"][i]["DescriptionWiki"]
+        })
+      }
+    }
     Search.search(planet).then(planet => {
       this.setState({
         aphelion: planet.aphelion,
@@ -81,6 +94,8 @@ planetSearch(e){
         mainAnomaly: planet.mainAnomaly
       })
     })
+    
+
   }
 
 

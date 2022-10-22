@@ -4,7 +4,6 @@ const Search = {
         const response = await fetch(url + planet)
             const jsonResponse = await response.json(); 
             if(jsonResponse){
-                console.log(jsonResponse)
                 return jsonResponse}          
     }}
 
