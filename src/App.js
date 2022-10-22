@@ -21,6 +21,8 @@ import PlanetData from './utils/planets.json';
 
 class App extends React.Component {
 
+  json = require('./utils/names_sizes.json')
+
   constructor(props) {
     super(props);
 
@@ -98,6 +100,30 @@ planetSearch(e){
 
   }
 
+  getImg(name){
+    switch(name){
+      case "Mercury":
+        return MercuryImg
+    case "Venus":
+        return VenusImg
+    case "Earth":
+        return EarthImg
+    case "Mars":
+       return MarsImg
+    case "Jupiter":
+        return JupiterImg
+    case "Saturn":
+        return SaturnImg
+    case "Uranus":
+        return UranusImg
+    case "Neptune":
+       return NeptuneImg
+    case "Sun":
+        return SunImg
+    default:
+        return
+    }
+  }
 
  render(){
    return (
@@ -106,18 +132,12 @@ planetSearch(e){
       <Link to="/"><h1 className="title">Our <span className="blue">Solar System</span></h1></Link>
       <div className="planets">
         <h3 className="title">{this.state.title}</h3>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Sun"><img src={SunImg} alt="No Img" height="300px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Mercury"><img src={MercuryImg} alt="No img" height="50px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Venus"><img src={VenusImg} alt="No img" height="100px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Earth"><img src={EarthImg} alt="No img" height="100px" ></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Mars"><img src={MarsImg} alt="No img" height="150px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Jupiter"><img src={JupiterImg} alt="No img" height="200px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Saturn"><img src={SaturnImg} alt="No img" height="175px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Uranus"><img src={UranusImg} alt="No img" height="150px"></img></Link>
-        <Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value="Neptune"><img src={NeptuneImg} alt="No img" height="200px"></img></Link>
+        {
+          this.json["data"].map((item) => {
+            return<Link to="/planet" onClick={this.planetSearch} onMouseEnter={this.titleUpdate} onMouseLeave={this.handleReturnTitle} value={item.name}><img src={this.getImg(item.name)} alt="No Img" height={item.size}></img></Link>
+          })
+        }
       </div>
-    
-
         <Switch>
           <Route exact path="/">
           </Route>

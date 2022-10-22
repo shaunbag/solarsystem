@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "name": "Sun",
+            "size": "300px"
+        },
+        {
+            "name": "Mercury",
+            "size": "50px"
+        },
+        {
+            "name": "Venus",
+            "size": "100px"
+        },
+        {
+            "name": "Earth",
+            "size": "100px"
+        },
+        {
+            "name": "Mars",
+            "size": "150px"
+        },
+        {
+            "name": "Jupiter",
+            "size": "200px"
+        },
+        {
+            "name": "Saturn",
+            "size": "175px"
+        },
+        {
+            "name": "Uranus",
+            "size": "150px"
+        },
+        {
+            "name": "Neptune",
+            "size": "200px"
+        }
+    ]
+}
